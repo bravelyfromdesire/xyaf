@@ -2,6 +2,10 @@
 
 namespace Xaf;
 
+use Xaf\View;
+use Xaf\Router;
+use Xaf\Dispatcher;
+
 class Application
 {
     /**
@@ -17,23 +21,20 @@ class Application
      */
     public function run()
     {
+        //谁来解析请求
+        $router = new Router();
+        list($controller, $action) = $router->route();
 
-    }
+        //谁来准备页面
+        $view = new View();
+        $view->init();
 
-    /**
-     * 以命令行的方式来启动程序
-     */
-    public function execute()
-    {
+        //分发请求
+        $dispatcher = new Dispatcher($controller, $action);
+        $response = $dispatcher->dispatch();
 
-    }
-
-    /**
-     * 启动程序前的自定义操作
-     */
-    public function bootstrop()
-    {
-
+        //响应
+        $view->display($response);
     }
 
     /**
