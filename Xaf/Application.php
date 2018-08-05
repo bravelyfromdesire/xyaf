@@ -25,13 +25,13 @@ class Application
         $router = new Router();
         list($controller, $action) = $router->route();
 
-        //谁来准备页面
-        $view = new View();
-        $view->init();
-
         //分发请求
         $dispatcher = new Dispatcher($controller, $action);
         $response = $dispatcher->dispatch();
+
+        //谁来准备页面
+        $view = new View();
+        $view->init();
 
         //响应
         $view->display($response);
