@@ -20,7 +20,7 @@ class Router
     {
         //Default
         $controller = 'Index';
-        $action = 'get';
+        $action = 'getAction';
         $method = 'get';
 
         //Controller & Action
@@ -34,7 +34,7 @@ class Router
                 if (isset($what[1])) {
                     $action = $method . ucfirst($what[1]);
                 } else {
-                    $action = $method . $controller;
+                    $action = $method . 'Action';
                 }
             }
         }
