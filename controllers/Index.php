@@ -1,9 +1,11 @@
 <?php
 
-class IndexController extends Yaf\Controller_Abstract
+class IndexController extends Xaf\Controller
 {
-    public function IndexAction()
+    public function getAction()
     {
-        echo 'foo';die;
+        $bar = $this->getParam('foo');
+
+        $this->answer(['bar' => $bar]);
     }
 }
