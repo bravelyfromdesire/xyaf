@@ -30,5 +30,7 @@ class Dispatcher
         $controller = new $this->controllerClass;
         $action = $this->action;
         $controller->$action();
+
+        return $controller->getResponse();
     }
 }

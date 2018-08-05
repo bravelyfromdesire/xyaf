@@ -21,6 +21,6 @@ class View
      */
     public function display($body = 'Hello, World :-)')
     {
-
+        echo $body;
     }
 }
